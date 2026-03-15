@@ -1,4 +1,4 @@
-'use client";';
+'use client';
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -38,6 +38,7 @@ const TitleDescription = ({
   headerClassName,
   titleClassName,
   descriptionClassName,
+  showTitleUnderline = true,
 }: {
   header: string;
   title: string;
@@ -46,6 +47,7 @@ const TitleDescription = ({
   headerClassName?: string;
   titleClassName?: string;
   descriptionClassName?: string;
+  showTitleUnderline?: boolean;
 }) => {
   return (
     <>
@@ -65,16 +67,18 @@ const TitleDescription = ({
           className={cn("relative inline-block text-green-600", titleClassName)}
         >
           {title}
-          <motion.span
-            className="absolute bottom-1 left-0 h-0.75 rounded-sm bg-linear-to-r from-green-600 to-transparent"
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{
-              duration: 0.8,
-              delay: 1.1,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          />
+          {showTitleUnderline ? (
+            <motion.span
+              className="absolute bottom-1 left-0 h-0.75 rounded-sm bg-linear-to-r from-green-600 to-transparent"
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{
+                duration: 0.8,
+                delay: 1.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            />
+          ) : null}
         </motion.span>
         {children}
       </motion.h1>

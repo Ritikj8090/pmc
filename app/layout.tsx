@@ -37,18 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${leagueSpartan.variable} antialiased bg-linear-to-br from-green-100/10 via-green-300/20 to-green-500/30`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} ${leagueSpartan.variable} antialiased animate-gradient-shift`}>
         <Navbar />
         <main className="container flex justify-center items-center mx-auto min-h-screen w-full pt-20">
-          <div
-            className="absolute inset-0 pointer-events-none animate-[gridDrift_22s_linear_infinite]"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(34,197,94,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.08) 1px, transparent 1px)",
-              backgroundSize: "60px 60px",
-            }}
-          />
           {children}
         </main>
         <Footer />
@@ -56,3 +47,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+//className={`${geistSans.variable} ${geistMono.variable} ${leagueSpartan.variable} antialiased bg-linear-to-br from-green-100/10 via-green-300/20 to-green-500/30`}

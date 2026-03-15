@@ -62,5 +62,5 @@ const AnimatedCounter = ({ target, suffix = "", className = "" }: AnimatedCounte
     </span>
   );
 };
-
+ 
 export default AnimatedCounter;

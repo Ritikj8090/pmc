@@ -472,7 +472,7 @@ export const PAST = [
   {
     id: 2,
     title: "Project Management Club Social!",
-    date: "Spring 2024",
+    date: "February 27, 2026",
     tag: "Social",
     icon: "🎉",
     color: "#52b788",
@@ -652,69 +652,69 @@ export const TAG_COLORS: Record<
     via: string;
     tag: string;
   }
-> = {
-  All: {
-    active: "bg-green-500 text-white border-green-500",
-    inactive: "border hover:border-green-500 hover:text-green-500",
-    color: "bg-green-500 opacity-30",
-    via: "via-green-500",
-    tag: "bg-green-500/10 border-green-500/30 text-green-500",
-  },
-  Social: {
-    active: "bg-green-500 text-white border-green-500",
-    inactive: "border hover:border-green-500 hover:text-green-500",
-    color: "bg-green-500 opacity-30",
-    via: "via-green-500",
-    tag: "bg-green-500/10 border-green-500/30 text-green-500",
-  },
-  Workshop: {
-    active: "bg-sky-500 text-white border-sky-500",
-    inactive: "border hover:border-sky-500 hover:text-sky-500",
-    color: "bg-sky-500 opacity-30",
-    via: "via-sky-500",
-    tag: "bg-sky-500/10 border-sky-500/30 text-sky-500",
-  },
-  Career: {
-    active: "bg-amber-500 text-white border-amber-500",
-    inactive: "border hover:border-amber-500 hover:text-amber-500",
-    color: "bg-amber-500 opacity-30",
-    via: "via-amber-500",
-    tag: "bg-amber-500/10 border-amber-500/30 text-amber-500",
-  },
-  Kickoff: {
-    active: "bg-orange-500 text-white border-orange-500",
-    inactive: "border hover:border-orange-500 hover:text-orange-500",
-    color: "bg-orange-500 opacity-30",
-    via: "via-orange-500",
-    tag: "bg-orange-500/10 border-orange-500/30 text-orange-500",
-  },
-  Speaker: {
-    active: "bg-purple-500 text-white border-purple-500",
-    inactive: "border hover:border-purple-500 hover:text-purple-500",
-    color: "bg-purple-500 opacity-30",
-    via: "via-purple-500",
-    tag: "bg-purple-500/10 border-purple-500/30 text-purple-500",
-  },
-  Conference: {
-    active: "bg-emerald-500 text-white border-emerald-500",
-    inactive: "border hover:border-emerald-500 hover:text-emerald-500",
-    color: "bg-emerald-500 opacity-30",
-    via: "via-emerald-500",
-    tag: "bg-emerald-500/10 border-emerald-500/30 text-emerald-500",
-  },
-  Panel: {
-    active: "bg-cyan-500 text-white border-cyan-500",
-    inactive: "border hover:border-cyan-500 hover:text-cyan-500",
-    color: "bg-cyan-500 opacity-30",
-    via: "via-cyan-500",
-    tag: "bg-cyan-500/10 border-cyan-500/30 text-cyan-500",
-  },
-  Community: {
-    active: "bg-green-500 text-white border-green-500",
-    inactive: "border hover:border-green-500 hover:text-green-500",
-    color: "bg-green-500 opacity-30",
-    via: "via-green-500",
-    tag: "bg-green-500/10 border-green-500/30 text-green-500",
+  > = {
+    All: {
+      active: "border-gray-700 bg-orange-200 text-black",
+      inactive: "border-gray-700 bg-orange-100/60 text-black hover:bg-orange-200/80",
+      color: "bg-green-500 opacity-30",
+      via: "via-green-500",
+      tag: "bg-green-500/10 border-green-500/30 text-green-500",
+    },
+    Social: {
+      active: "border-gray-700 bg-orange-200 text-black",
+      inactive: "border-gray-700 bg-orange-100/60 text-black hover:bg-orange-200/80",
+      color: "bg-green-500 opacity-30",
+      via: "via-green-500",
+      tag: "bg-green-500/10 border-green-500/30 text-green-500",
+    },
+    Workshop: {
+      active: "border-gray-700 bg-orange-200 text-black",
+      inactive: "border-gray-700 bg-orange-100/60 text-black hover:bg-orange-200/80",
+      color: "bg-sky-500 opacity-30",
+      via: "via-sky-500",
+      tag: "bg-sky-500/10 border-sky-500/30 text-sky-500",
+    },
+    Career: {
+      active: "border-gray-700 bg-orange-200 text-black",
+      inactive: "border-gray-700 bg-orange-100/60 text-black hover:bg-orange-200/80",
+      color: "bg-amber-500 opacity-30",
+      via: "via-amber-500",
+      tag: "bg-amber-500/10 border-amber-500/30 text-amber-500",
+    },
+    Kickoff: {
+      active: "border-gray-700 bg-orange-200 text-black",
+      inactive: "border-gray-700 bg-orange-100/60 text-black hover:bg-orange-200/80",
+      color: "bg-orange-500 opacity-30",
+      via: "via-orange-500",
+      tag: "bg-orange-500/10 border-orange-500/30 text-orange-500",
+    },
+    Speaker: {
+      active: "border-gray-700 bg-orange-200 text-black",
+      inactive: "border-gray-700 bg-orange-100/60 text-black hover:bg-orange-200/80",
+      color: "bg-purple-500 opacity-30",
+      via: "via-purple-500",
+      tag: "bg-purple-500/10 border-purple-500/30 text-purple-500",
+    },
+    Conference: {
+      active: "border-gray-700 bg-orange-200 text-black",
+      inactive: "border-gray-700 bg-orange-100/60 text-black hover:bg-orange-200/80",
+      color: "bg-emerald-500 opacity-30",
+      via: "via-emerald-500",
+      tag: "bg-emerald-500/10 border-emerald-500/30 text-emerald-500",
+    },
+    Panel: {
+      active: "border-gray-700 bg-orange-200 text-black",
+      inactive: "border-gray-700 bg-orange-100/60 text-black hover:bg-orange-200/80",
+      color: "bg-cyan-500 opacity-30",
+      via: "via-cyan-500",
+      tag: "bg-cyan-500/10 border-cyan-500/30 text-cyan-500",
+    },
+    Community: {
+      active: "border-gray-700 bg-orange-200 text-black",
+      inactive: "border-gray-700 bg-orange-100/60 text-black hover:bg-orange-200/80",
+      color: "bg-green-500 opacity-30",
+      via: "via-green-500",
+      tag: "bg-green-500/10 border-green-500/30 text-green-500",
   },
 };
 

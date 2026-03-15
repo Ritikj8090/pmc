@@ -64,7 +64,7 @@ function StoryCard({ s, delay }: { s: (typeof STORIES)[0]; delay: number }) {
 const page = () => {
   return (
     <div className="min-h-screen space-y-10 py-10">
-      <section className="relative overflow-hidden px-[5%] py-10 text-center h-[calc(100vh-164px)] flex flex-col items-center justify-center">
+      <section className="relative flex flex-col items-center justify-center overflow-hidden px-[5%] py-16 text-center md:py-20">
         <Badge title="Spring 2024 · PMC Flagship Initiative" className="text-[9px]" />
         <TitleDescription
           header="Student "

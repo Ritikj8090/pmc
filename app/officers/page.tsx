@@ -3,7 +3,6 @@
 import Badge from "@/components/Badge";
 import TitleDescription from "@/components/TitleDescription";
 import { Button } from "@/components/ui/button";
-import { TEAM } from "@/constant";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,11 +30,52 @@ function SectionDivider({ label }: { label: string }) {
   );
 }
 
-export default function TeamSection() {
-  const leadership = TEAM.filter((m) => m.tier === 1);
-  const officers = TEAM.filter((m) => m.tier === 2);
-  const media = TEAM.filter((m) => m.tier === 3);
+const prioritizedLeadImages = [
+  "tara_canugovi.png",
+  "zeeshan_ahmed.png",
+  "viashnavi_dosapati.png",
+  "harsha_vardhini.png",
+  "qurrat_ain.png",
+];
 
+const leadGalleryImages = [
+  "abhilash_kulkarni.png",
+  "aditi_venkatakrishnan.png",
+  "akshat_mishra.png",
+  "amey_thakare.png",
+  "atharva_kulkarni.png",
+  "bhoomi_parikh.png",
+  "fadil_mohammad.png",
+  "gurman_kaur.png",
+  "hamza_karayaka.png",
+  "harsha_vardhini.png",
+  "harsh_nagouda.png",
+  "nitin_koshy.png",
+  "priti_ranpariya.png",
+  "qurrat_ain.png",
+  "roshni_magar.png",
+  "sai_teja.png",
+  "samarth_kumbhar.png",
+  "sanjana_jain.png",
+  "shrutika_shelke.png",
+  "shruti_ghuge.png",
+  "shruti_kure.png",
+  "simran_madaan.png",
+  "sneha_tiwari.png",
+  "sresth_prakash.png",
+  "stuti_mehta.png",
+  "tara_canugovi.png",
+  "vaibhavi_magar.png",
+  "viashnavi_dosapati.png",
+  "zeeshan_ahmed.png",
+];
+
+const orderedGalleryImages = [
+  ...prioritizedLeadImages,
+  ...leadGalleryImages.filter((image) => !prioritizedLeadImages.includes(image)),
+];
+
+export default function TeamSection() {
   return (
     <div className="min-h-screen space-y-10 py-10">
       <section className="relative overflow-hidden px-[5%] md:py-10 text-center h-[calc(100vh-164px)] flex flex-col items-center justify-center">
@@ -59,44 +99,13 @@ export default function TeamSection() {
           className="mx-auto rounded-3xl border object-cover md:w-auto w-40"
         />
 
-        <SectionDivider label="Executive Leadership" />
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {leadership.map((member, index) => (
-            // <MemberCard key={member.name} member={member} index={index} />
-            <Image
-              key={member.name}
-              src={member.poster}
-              alt={member.name}
-              width={320}
-              height={320}
-              className="mx-auto rounded-3xl border object-cover md:w-auto w-40"
-            />
-          ))}
-        </div>
-
-        <SectionDivider label="Officers" />
+        <SectionDivider label="Leads & Team" />
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {officers.map((member, index) => (
-            // <MemberCard key={member.name} member={member} index={index} />
+          {orderedGalleryImages.map((image) => (
             <Image
-              key={member.name}
-              src={member.poster}
-              alt={member.name}
-              width={320}
-              height={320}
-              className="mx-auto rounded-3xl border object-cover md:w-auto w-40"
-            />
-          ))}
-        </div>
-
-        <SectionDivider label="Social Media & Web" />
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {media.map((member, index) => (
-            // <MemberCard key={member.name} member={member} index={index} />
-            <Image
-              key={member.name}
-              src={member.poster}
-              alt={member.name}
+              key={image}
+              src={`/leads_imgs/${image}`}
+              alt={image.replace(".png", "").replace(/_/g, " ")}
               width={320}
               height={320}
               className="mx-auto rounded-3xl border object-cover md:w-auto w-40"

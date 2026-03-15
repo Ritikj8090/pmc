@@ -278,10 +278,10 @@ const page = () => {
             <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-2">
               {/* QR */}
               <div className=" rounded-xl p-6 mb-6 flex flex-col items-center gap-3">
-                <div className="font-mono text-[0.65rem] tracking-[0.12em] uppercase text-muted-foreground text-center">
+                <div className="font-mono text-[0.65rem] tracking-[0.12em] uppercase text-black text-center">
                   Project Management Club
                 </div>
-                <div className="font-mono text-xs text-muted-foreground text-center">
+                <div className="font-mono text-xs text-black text-center">
                   utdpmc@gmail.com
                 </div>
                 <Image

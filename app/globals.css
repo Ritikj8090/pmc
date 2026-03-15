@@ -164,3 +164,15 @@
     opacity: 0;
   }
 }
+
+@keyframes gradientShift {
+  0%   { background-position: 100% 100%; }
+  50%  { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.animate-gradient-shift {
+  background: linear-gradient(135deg, #ffffff, #caf1ca, #d5f1d5, #e1f2e1, #ffffff);
+  background-size: 300% 300%;
+  animation: gradientShift 30s ease infinite;
+}

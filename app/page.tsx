@@ -135,15 +135,17 @@ export default function App() {
   return (
     <>
       <div className="min-h-screen w-full space-y-10">
-        <section className="relative flex items-center justify-center flex-col w-full min-h-screen overflow-hidden px-[5%]">
+        <section className="relative flex w-full flex-col items-center justify-center overflow-hidden px-[5%] py-16 text-center md:py-20">
           {/* Main content */}
           <motion.div className="relative z-10 text-center">
             {/* Badge */}
             <Badge title="Student Org of the Year 2024" />
             <TitleDescription
-              header="Project"
-              title="Management"
-              description={`Welcome to PMC UT Dallas, where passion fuels project management
+              header="The"
+              title="Project Management"
+              titleClassName=""
+              showTitleUnderline={true}
+              description={`Welcome to The PMC UT Dallas, where passion fuels project management
           excellence! Embark on an empowering journey with us as we ignite
           future leaders' minds through dynamic activities. Join our vibrant
           community dedicated to advancing knowledge in project and product
@@ -154,7 +156,7 @@ export default function App() {
                   Club At UTD
                 </motion.span>
               }
-              headerClassName="font-serif"
+              
               descriptionClassName="max-w-250 text-[clamp(1rem,2vw,1.2rem)]"
             />
 
@@ -200,22 +202,21 @@ export default function App() {
         <section className="px-[5%] md:py-10">
           <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <div className="flex items-center gap-3 font-mono text-[0.7rem] tracking-[0.2em] uppercase text-green-600 mb-4">
-                <span className="w-8 h-px bg-green-600 inline-block" />
+              <div className="mb-4 text-lg font-semibold text-gray-800">
                 Recognition
               </div>
-              <h2 className="font-serif font-black text-[clamp(2rem,4vw,3.2rem)] leading-[1.15] mb-6">
+              <h2 className="mb-6 text-[clamp(2rem,4vw,3.2rem)] font-bold leading-[1.15] text-black">
                 Student Organisation
                 <br />
                 <span className="text-green-600">of the Year</span>
               </h2>
-              <p className="text-muted-foreground leading-[1.75] mb-8 text-base">
+              <p className="mb-8 text-base leading-[1.75] text-muted-foreground">
                 Project Management Club is the proud recipient of the
                 prestigious OWLIE (Outstanding, Worthy Leaders, Involved
                 Exceptionally) award 2024 — recognizing our exceptional impact
                 on student life at UT Dallas.
               </p>
-              <div className="inline-flex items-center gap-4 bg-yellow-500/10 border border-yellow-500 rounded-lg px-6 py-4">
+              <div className="hidden">
                 <span className="text-[2rem]">🏆</span>
                 <div>
                   <strong className="block font-serif text-[0.95rem] text-yellow-600 mb-0.5">
@@ -232,7 +233,7 @@ export default function App() {
               >
                 <Button
                   variant={"outline"}
-                  className="border mt-4 px-6 py-7 border-yellow-900 hover:text-yellow-900 cursor-pointer hover:scale-105 ease-in-out duration-300 hover:shadow-lg shadow-yellow-900/30"
+                  className="mt-4 cursor-pointer border border-gray-700 px-6 py-7 duration-300 ease-in-out hover:scale-105 hover:text-black hover:shadow-lg shadow-gray-900/20"
                 >
                   Learn about the Owlies →
                 </Button>
@@ -258,6 +259,7 @@ export default function App() {
           <div className="mx-auto grid grid-cols-3 gap-8">
             {STATS.map((s, i) => (
               <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
@@ -294,7 +296,7 @@ export default function App() {
         <section className="md:py-10 px-[5%]">
           <SectionHeader label="Knowledge Sessions" title="Past Events" />
           <div className="grid md:grid-cols-3 grid-cols-2 gap-6 mx-auto">
-            {EVENTS.map((ev, i) => (
+            {EVENTS.filter((ev) => ev.title !== "PM Certification Prep").map((ev, i) => (
               <EventCard key={ev.title} ev={ev} delay={i * 0.1} />
             ))}
           </div>
@@ -316,6 +318,7 @@ export default function App() {
           <div className=" mx-auto grid md:grid-cols-4 grid-cols-3 gap-8">
             {SPEAKERS.map((s, i) => (
               <motion.div
+                key={s}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}

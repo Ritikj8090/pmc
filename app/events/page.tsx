@@ -10,6 +10,29 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { PAST, TAG_COLORS, UPCOMING } from "@/constant";
 
+const EVENT_BANNERS: Record<string, string> = {
+  "Keep in Touch!": "/events_banners/pmc_connect_spr26.jpg",
+  "Project Management Club Social!": "/events_banners/pmc_social.png",
+  "Mastering MS Project": "/events_banners/MasteringMSProj.jpeg",
+  "Level Up your PM Career: PMP & Agile Certifications Explained":
+    "/events_banners/pmcF25lvlupcrer.jpg",
+  "Fall 2025 Kickoff": "/events_banners/F25_Kickoff_PMC.png",
+  "Charting the PM Adventure": "/events_banners/CharteringPMAdvent.jpeg",
+  "PMC Kickoff Event": "/events_banners/EVENT 1 KICK OFF.png",
+  "Vision to Value": "/events_banners/Vision_to_Value.jpeg",
+  "PM Launchpad": "/events_banners/hackathon.png",
+  "Introduction to Product Management": "/events_banners/Product Strategy.png",
+  "Convergence 360": "/events_banners/Convergence 360.PNG",
+  "Project Management 101": "/events_banners/Project management 101.PNG",
+  "Digital Transformation, Emerging Technologies & Impact of Generative AI":
+    "/events_banners/Digital Transformation, Emerging Technologies & Impact of Generative AI.PNG",
+  "Project Management and Beyond": "/events_banners/proj mgmt and beyond.PNG",
+};
+
+function getEventBanner(title: string) {
+  return EVENT_BANNERS[title] || "/events_banners/spotlight.png";
+}
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -68,7 +91,7 @@ function EventCard({
       <motion.div
         {...fadeUp(delay)}
         whileHover={{ y: -6 }}
-        className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl border border-green-900/30 p-7 transition-colors duration-300 hover:border-green-900/10 hover:bg-green-900/10"
+        className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl border border-gray-700/70 bg-orange-100/60 p-7 transition-colors duration-300 hover:border-gray-800 hover:bg-orange-100/80"
       >
         <div
           className={cn(
@@ -122,7 +145,7 @@ function EventCard({
     <motion.div
       {...fadeUp(delay)}
       whileHover={{ x: 4 }}
-      className="group relative flex md:flex-row flex-col gap-6 overflow-hidden rounded-2xl border border-green-900/20 px-8 py-7 transition-colors duration-300 hover:bg-green-900/10"
+      className="group relative flex md:flex-row flex-col gap-6 overflow-hidden rounded-2xl border border-gray-700/70 bg-orange-100/60 px-8 py-7 transition-colors duration-300 hover:bg-orange-100/80"
     >
       <div
         className={cn(
@@ -132,11 +155,11 @@ function EventCard({
       />
 
       <Image
-        src={"/Convergence_360.png"}
+        src={getEventBanner(event.title)}
         alt={event.title}
-        width={100}
-        height={100}
-        className="md:h-40 md:w-30 w-auto rounded-xl object-cover"
+        width={220}
+        height={140}
+        className="h-auto w-full rounded-xl object-cover md:h-40 md:w-56 md:shrink-0"
       />
 
       <div className="min-w-0 flex-1">
@@ -184,9 +207,15 @@ function UpcomingCard({ event }: { event: EventItem }) {
   return (
     <motion.div
       {...fadeUp(0.1)}
-      className="flex md:flex-row flex-col gap-6 rounded-2xl border border-green-900/20 px-8 py-7"
+      className="flex md:flex-row flex-col gap-6 rounded-2xl border border-gray-700/70 bg-orange-100/60 px-8 py-7"
     >
-      <div className="text-[2rem]">{event.icon}</div>
+      <Image
+        src={getEventBanner(event.title)}
+        alt={event.title}
+        width={220}
+        height={140}
+        className="h-auto w-full rounded-xl object-cover md:h-40 md:w-56 md:shrink-0"
+      />
 
       <div>
         <div className="mb-2 flex flex-wrap items-center gap-3">
@@ -223,13 +252,16 @@ export default function EventsSection() {
   );
 
   const filtered = useMemo(
-    () => (filter === "All" ? PAST : PAST.filter((e) => e.tag === filter)),
+    () =>
+      (filter === "All" ? PAST : PAST.filter((e) => e.tag === filter)).filter(
+        (event) => event.id !== 5,
+      ),
     [filter],
   );
 
   return (
     <div className="min-h-screen w-full space-y-10">
-      <section className="relative overflow-hidden px-[5%] md:py-10 text-center min-h-[calc(100vh-64px)] flex flex-col items-center justify-center">
+      <section className="relative flex flex-col items-center justify-center overflow-hidden px-[5%] py-16 text-center md:py-20">
         <Badge title="Knowledge Sessions & Workshops" />
         <TitleDescription
           header="Our"
@@ -239,7 +271,7 @@ export default function EventsSection() {
         />
         <motion.div
           {...fadeUp(0.6)}
-          className="relative mt-20 flex flex-wrap justify-center gap-12"
+          className="relative mt-12 flex flex-wrap justify-center gap-12"
         >
           {[
             ["65+", "Events Organized"],
@@ -280,7 +312,7 @@ export default function EventsSection() {
                   <div
                     key={tag}
                     onClick={() => setFilter(tag)}
-                    className={`cursor-pointer rounded-full border px-4 py-1.5 text-[0.8rem] font-medium tracking-[0.03em] transition-all duration-200 ${
+                    className={`cursor-pointer rounded-full border border-gray-700 px-4 py-1.5 text-[0.8rem] font-medium tracking-[0.03em] transition-all duration-200 ${
                       filter === tag ? styles.active : styles.inactive
                     }`}
                   >
@@ -342,9 +374,6 @@ export default function EventsSection() {
           {...fadeUp(0.1)}
           className="relative mt-20 overflow-hidden rounded-3xl px-8 md:py-16 text-center"
         >
-          <div className="relative mb-4 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-green-600">
-            — Stay Connected —
-          </div>
 
           <h2 className="relative mb-4 text-[clamp(1.8rem,3.5vw,2.8rem)] font-black ">
             Never Miss an Event
